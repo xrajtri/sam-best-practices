@@ -1,0 +1,17 @@
+{
+  "name": "getmanufacturers",
+  "version": "1.0.0",
+  "description": "Tha lambda function to get all the manufacturers of USA.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "getmanufacturers"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}

@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  SAM template for the lamnda functions of project - example.
+Globals:
+  Function:
+    Timeout: 60
+Resources:
+  GetManufacturersFunction:
+    Type: AWS::Serverless::Function 
+    Properties:
+      CodeUri: src/getManufacturers/
+      Handler: index.lambdaHandler
+      Runtime: nodejs12.x
+      Events:
+        GetManufacturers:
+          Type: Api
+          Properties:
+            Path: /GetManufacturers
+            Method: get
+Outputs:
+  GetManufacturersApi:
+    Description: "API Gateway endpoint URL of GetManufacturers lambda function for application - phobos."
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/dev-phobos-v1/api/GetManufacturers/"
+  GetManufacturersFunction:
+    Description: "Hello World Lambda Function ARN"
+    Value: !GetAtt GetManufacturersFunction.Arn
+  GetManufacturersIamRole:
+    Description: "Implicit IAM Role created for Hello World function"
+    Value: !GetAtt GetManufacturersRole.Arn
